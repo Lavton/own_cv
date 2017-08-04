@@ -40,10 +40,11 @@
 % \usepackage[utf8]{inputenc}
 % \usepackage[T1]{fontenc}
 % \usepackage[default]{lato}
-\usepackage[english,russian]{babel}   %% загружает пакет многоязыковой вёрстки
+\usepackage[english]{babel}   %% загружает пакет многоязыковой вёрстки
 \usepackage{fontspec} 
 \usepackage{setspace}
 \usepackage{hyperref} 
+\usepackage[backend=biber]{biblatex}
 
 % If using xelatex or lualatex:
 \setmainfont{Lato}
@@ -66,7 +67,7 @@
 \renewcommand{\ratingmarker}{\faCircle}
 
 %% sample.bib contains your publications
-\addbibresource{sample.bib}
+\addbibresource{lioznov_pub.bib}
 
 \begin{document}
 \name{Anton Lioznov}
@@ -99,24 +100,25 @@
 %% \cvsection title in the "main" bar.
 \cvsection[pagesidebar_EN.tex]{Work Experience}
 
-\cvevent{intern programmer}{OKKO-movies}{2014, summer}{}
+\cvevent{intern programmer}{OKKO}{Online cinema}{2014, summer}{}
 \begin{itemize}
 \item Worked on optimization of interaction with external sources
 \item Achieved 10x speed of interaction
 \item Improved search quality
 \end{itemize}
 \cvtag{Java} \cvtag{Grails} \cvtag{Postgresql} \cvtag{Git}
-\divider
 
-\cvevent{Tester of the physics tasks}{Competentum}{2014, summer}{}
+\vspace{20pt}
+
+\cvevent{intern programmer}{Papeeria}{Online \LaTeX~editor}{2017, summer}{}
 \begin{itemize}
-\item Looked for errors in problems statement and solution
-\item QA of the quality assurance of the user experience with the website
+\item Add UI for working with git merge conflicts
 \end{itemize}
-%\cvtag{black box testing}
+\cvtag{Java} \cvtag{Coffeescript} \cvtag{Docker} \cvtag{LESS}
+
 \divider
 
-\cvevent{Physics Teacher}{Formula de Integro}{2015, summer; 2016, winter}{}
+\cvevent{Physics Teacher}{Formula de Integro}{multidisciplinary summer camp}{2015, summer; 2016, winter}{}
 \begin{itemize}
 \item Used various approaches to explain the material
 \item Prepared the program  from the scratch
@@ -124,21 +126,21 @@
 
 \cvsection{Projects}
 
-\cvevent{Computer simulation of acceleration of cosmic rays on the fronts of supernova wave}{St.Petersburg Polytechnic University}{2014 -- 2015}{}
-\begin{itemize}
-\item Constructed a difference scheme and compared it with stochastic approaches
-\end{itemize}
-\cvtag{C++} \cvtag{Git} \cvtag{gle}
-\divider
+% \cvevent{Computer simulation of acceleration of cosmic rays on the fronts of supernova wave}{St.Petersburg Polytechnic University}{2014 -- 2015}{}
+% \begin{itemize}
+% \item Constructed a difference scheme and compared it with stochastic approaches
+% \end{itemize}
+% \cvtag{C++} \cvtag{Git} \cvtag{gle}
+% \divider
 
-\cvevent{Online course "Programming basics for Linux"}{Stepik}{2016}{}
+\cvevent{Online course "Programming basics for Linux"}{Stepik}{educational platform}{2016}{}
 \begin{itemize}
 \item Worked on the server part of the task verification system and the RESTful API
 \end{itemize}
 \cvtag{Python} \cvtag{Docker}
 \divider
 
-\cvevent{Leadership and development}{Vozhatnik}{2016 -- ongoing}{}
+\cvevent{Leadership and development}{Vozhatnik}{the biggest community of camp tutors in VKontakte}{2016 -- ongoing}{}
 \begin{itemize}
 \item Created a site and an automation of the system
 \item Сollecting statistics
@@ -182,6 +184,37 @@
 %% sidebar a bit so that it looks aligned with the top of the
 %% main column.
 % \addnextpagesidebar[-1ex]{page3sidebar}
+
+\clearpage
+
+\cvsection[pagesidebar2_EN]{Education}
+\cvevent{Master of Science in Physics}{St.Petersburg Polytechnic University}{}{2015 -- 2017}{}
+\textit{graduate with excellence}\\
+\textbf{Department} of space research\\
+\textbf{Thesis}: "The influence of heavy helium isotopes on the processes of primary nucleosynthesis"
+
+\vspace{0.2em}
+
+\cvtag{Python} \cvtag{scipy} 
+
+\vspace{0.9em}
+\cvevent{Bachelor of Physics}{St.Petersburg Polytechnic University}{}{2011 -- 2015}{}
+\textbf{Department} of space research\\
+\textbf{Thesis}: "Computer simulation of acceleration of cosmic rays on the fronts of supernova wave"
+
+\vspace{0.2em}
+
+\cvtag{C++} \cvtag{gle} \cvtag{Parallel programming} \cvtag{Python}
+
+\vspace{0.9em}
+\cvevent{Software Engineering}{Computer Science Center}{Night school, created by Yandex and JetBrains}{2012 -- 2015}{}
+\href{https://compscicenter.ru/users/415/}{compscicenter.ru/users/415/}
+
+\cvsection{Publications}
+
+\nocite{*}
+
+\printbibliography[heading=pubtype,title={\printinfo{\faGroup}{Conference Proceedings}},type=inproceedings]
 
 
 \end{document}

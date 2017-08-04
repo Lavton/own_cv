@@ -152,7 +152,9 @@
     \ifdef{\@photodiameter}{%
     \end{minipage}\hfill%
     \begin{minipage}{\@photodiameter}
+    \hspace{-2cm}
     \tikz\path[fill overzoom image={\@photo}]circle[radius=0.5\linewidth];
+
     \end{minipage}\par}{}%
   \endgroup\medskip
 }
@@ -179,13 +181,13 @@
   {\color{emphasis}\large\bfseries{#1}\par}\medskip
 }
 
-\newcommand{\cvevent}[4]{%
+\newcommand{\cvevent}[5]{%
   {\large\color{emphasis}#1\par}
   \smallskip
-  \textbf{\color{accent}#2}\par
+  \textbf{\color{accent}#2}\ifstrequal{#3}{}{}{ -- #3}\par
   \smallskip
-  {\small\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
-  \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
+  {\small\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#4}%
+  \ifstrequal{#5}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#5}}\par}
   \medskip
 }
 
@@ -202,7 +204,7 @@
 }
 
 \newcommand{\cvdescription}[2]{%
-  \cvtag{#1} -- #2\\[0.5em]
+  \cvtag{#1}\ifstrequal{#2}{}{}{ -- #2}\\[0.5em]
   
 }
 
@@ -210,6 +212,16 @@
 \textcolor{emphasis}{\textbf{#1}}\hfill
 \foreach \x in {1,...,5}{%
   \space{\ifnumgreater{\x}{#2}{\color{body!30}}{\color{accent}}\faCircle}}\par%
+}
+
+\newcommand{\sectorskill}[1] {
+  \begin{tikzpicture}[scale=0.3]
+  \pgfmathtruncatemacro\fillsector{#1 * 360 / 10}
+  \filldraw[fill=accent!10!white, draw=accent!50!black, rotate=90]
+    (0,0) -- (3mm,0mm) arc (0:360:3mm) -- (0,0);
+  \filldraw[fill=accent!40!white, draw=accent!50!black, rotate=90]
+    (0,0) -- (3mm,0mm) arc (0:\fillsector:3mm) -- (0,0);
+  \end{tikzpicture} 
 }
 
 \newcommand\skills[1]{ 
@@ -221,33 +233,27 @@
 \begin{multicols}{2}
 
 \begin{tikzpicture}
-
 \foreach [count=\i] \x/\y in {#1}
 {
 \ifnum\i>\halfSkills
 \else
+
 \draw[fill=maingray,maingray] (0,\halfSkills-\i) rectangle (3,\halfSkills-\i+0.4);
 \draw[fill=white,skillfill](0,\halfSkills-\i) rectangle (\y,\halfSkills-\i+0.4);
 \node [above right ] at (0,\halfSkills-\i+0.4) {\x};
 \fi
 }
-
 \end{tikzpicture}
-
-
 \begin{tikzpicture}
-
 \foreach [count=\i] \x/\y in {#1}
 {
 \ifnum\i>\halfSkills
-\draw[fill=maingray,maingray] (0,\halfSkills-\i) rectangle (3,\halfSkills-\i+0.4);
-\draw[fill=white,skillfill](0,\halfSkills-\i) rectangle (\y,\halfSkills-\i+0.4);
-\node [above right ] at (0,\halfSkills-\i+0.4) {\x};
+\draw[fill=maingray,maingray] (0,\halfSkills-\i-0.07) rectangle (3,\halfSkills-\i+0.4-0.07);
+\draw[fill=white,skillfill](0,\halfSkills-\i-0.07) rectangle (\y,\halfSkills-\i+0.4-0.07);
+\node [above right ] at (0,\halfSkills-\i+0.4-0.07) {\x};
 \fi
 }
-
 \end{tikzpicture}
-
 \end{multicols}
 
 }

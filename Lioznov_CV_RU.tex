@@ -35,7 +35,7 @@
 
 
 % Change the page layout if you need to
-\geometry{left=1cm,right=9cm,marginparwidth=6.8cm,marginparsep=1.2cm,top=0.9cm,bottom=1.25cm}
+\geometry{left=1cm,right=8cm,marginparwidth=6.8cm,marginparsep=0.5cm,top=0.9cm,bottom=1.25cm}
 % Change the font if you want to.
 
 % If using pdflatex:
@@ -46,6 +46,7 @@
 \usepackage{fontspec} 
 \usepackage{setspace}
 \usepackage{hyperref} 
+\usepackage[backend=biber]{biblatex}
 
 % If using xelatex or lualatex:
 \setmainfont{Lato}
@@ -68,7 +69,7 @@
 %\renewcommand{\ratingmarker}{\faCircle}
 
 %% sample.bib contains your publications
-\addbibresource{sample.bib}
+\addbibresource{lioznov_pub.bib}
 
 \begin{document}
 \name{Антон Лиознов}
@@ -103,7 +104,7 @@
 %% \cvsection title in the "main" bar.
 \cvsection[pagesidebar_RU.tex]{Опыт работы}
 
-\cvevent{программист-стажёр}{OKKO-фильмы}{лето 2014}{}
+\cvevent{программист-стажёр}{OKKO}{онлайн-кинотеатр}{лето 2014}{}
 \begin{itemize}
 \item Оптимизировал работу с внешними источниками
 \item Добился ускорения работы на порядок
@@ -111,38 +112,39 @@
 \end{itemize}
 \cvtag{Java} \cvtag{Grails} \cvtag{Postgresql} \cvtag{Git}
 
-\divider
+\vspace{20pt}
 
-\cvevent{Тестировщик задач по физике}{Competentum}{Лето 2014}{}
+\cvevent{программист-стажёр}{Papeeria}{онлайн \LaTeX~редактор}{Лето 2017}{}
 \begin{itemize}
-\item Искал ошибки в условиях и решениях
-\item Тестировал работу с сайтом с точки зрения пользователя
+\item Добавил UI для работы с git при конфликтах
 \end{itemize}
+\cvtag{Java} \cvtag{Coffeescript} \cvtag{Docker} \cvtag{LESS}
+
 \divider
 
-\cvevent{Преподаватель физики}{Формула Единства}{лето 2015, зима 2016}{}
+\cvevent{Преподаватель физики}{Формула Единства}{многопрофильный детский лагерь}{лето 2015, зима 2016}{}
 \begin{itemize}
 \item Сочетал различные способы объяснения материала
 \item Полностью готовил программу
 \end{itemize}
-
+\vspace{31pt}
 \cvsection{Проекты}
 
-\cvevent{Компьютерное моделирование ускорения космических лучей на фронтах волны сверхновой}{Политехнический Университет}{2014 -- 2015}{}
-\begin{itemize}
-\item Построил разностную схему и сравнил со cтохастическими подходами
-\end{itemize}
-\cvtag{C++} \cvtag{Git} \cvtag{gle}
-\divider
+% \cvevent{Компьютерное моделирование ускорения космических лучей на фронтах волны сверхновой}{Политехнический Университет}{}{2014 -- 2015}{}
+% \begin{itemize}
+% \item Построил разностную схему и сравнил со cтохастическими подходами
+% \end{itemize}
+% \cvtag{C++} \cvtag{Git} \cvtag{gle}
+% \divider
 
-\cvevent{Онлайн-курс "Основы программирования для Linux"}{Stepik}{2016}{}
+\cvevent{Онлайн-курс "Основы программирования для Linux"}{Stepik}{образовательная платформа}{2016}{}
 \begin{itemize}
 \item Работал над серверной частью системы проверки задач и RESTful API
 \end{itemize}
 \cvtag{Python} \cvtag{Docker}
 \divider
 
-\cvevent{Руководство и разработка}{Вожатник}{2016 -- н/в}{}
+\cvevent{Руководство и разработка}{Вожатник}{крупнейшее сообщество для вожатых ВК}{2016 -- н/в}{}
 \begin{itemize}
 \item Создал сайт и системы автоматизации
 \item Занимаюсь сбором статистики
@@ -167,12 +169,38 @@
 %   5/6em/accent!20/Spending time with family
 % }
 
-%\clearpage
-%\cvsection[page2sidebar]{Publications}
+\clearpage
 
-%\nocite{*}
+\cvsection[pagesidebar2_RU]{Образование}
+\cvevent{Магистр физики}{Политехнический университет}{}{2015 -- 2017}{}
+\textit{С красным дипломом}\\
+\textbf{Кафедра:} Космических Исследований\\
+\textbf{Тема диссертации:} "Влияние тяжёлых изотопов гелия на процессы первичного нуклеосинтеза"
 
-%\printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+\vspace{0.2em}
+
+\cvtag{Python} \cvtag{scipy} 
+
+\vspace{0.9em}
+\cvevent{Бакалавр физики}{Политехнический университет}{}{2011 -- 2015}{}
+\textbf{Кафедра:} Космических Исследований\\
+\textbf{Тема диссертации:} "Компьютерное моделирование ускорения космических лучей на фронтах волны сверхновой"
+
+\vspace{0.2em}
+
+\cvtag{C++} \cvtag{gle} \cvtag{Параллельное программирование} \cvtag{Python}
+
+\vspace{0.9em}
+\cvevent{Разработчик ПО}{Computer Science Center}{вечерние курсы, созданные по инициативе Yandex и JetBrains}{2012 -- 2015}{}
+\href{https://compscicenter.ru/users/415/}{compscicenter.ru/users/415/}
+
+\cvsection{Публикации}
+
+\nocite{*}
+
+\printbibliography[heading=pubtype,title={\printinfo{\faGroup}{Участие в конференциях}},type=inproceedings]
+
+% \printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
 
 % \divider
 
@@ -180,7 +208,6 @@
 
 % \divider
 
-% \printbibliography[heading=pubtype,title={\printinfo{\faGroup}{Conference Proceedings}},type=inproceedings]
 
 %% If the NEXT page doesn't start with a \cvsection but you'd
 %% still like to add a sidebar, then use this command on THIS

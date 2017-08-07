@@ -152,7 +152,7 @@
     \ifdef{\@photodiameter}{%
     \end{minipage}\hfill%
     \begin{minipage}{\@photodiameter}
-    \hspace{-2cm}
+    \hspace{-1cm}
     \tikz\path[fill overzoom image={\@photo}]circle[radius=0.5\linewidth];
 
     \end{minipage}\par}{}%
